@@ -1,27 +1,35 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    QMainWindow(parent)
 {
-    ui->setupUi(this);
+    m_settings = new QSettings(this);
+
+    sizeWindow();
 
     createActions();
     createMenus();
     createToolbars();
+    createStatusBar();
+
+    connect(qApp, SIGNAL(aboutToQuit()), this, SLOT(closeCleanup()));
 }
 
 MainWindow::~MainWindow()
 {
-    delete ui;
+
 }
 
 void MainWindow::closeEvent(QCloseEvent* event)
 {
+    m_settings->setValue("geom/winsize", size());
     event->accept();
 }
 
+void MainWindow::closeCleanup()
+{
+    m_settings->setValue("geom/winsize", size());\
+}
 void MainWindow::newNote()
 {
 
@@ -79,7 +87,22 @@ void MainWindow::selectAll()
 
 void MainWindow::about()
 {
-    QMessageBox::about(this, "About QrossNotes", tr("<b>QrossNotes 0.0</b><br/>Author: Paul Bonnen<br/>Rethink how you take notes."));
+    QString aboutText;
+
+    aboutText = "<b>QrossNotes ";
+    aboutText.append(qApp->applicationVersion());
+    aboutText.append("</b><p>Author: Paul Bonnen</p>");
+    aboutText.append("<p>Rethink how you take notes</p>");
+
+    QMessageBox::about(this, "About QrossNotes", tr(aboutText.toStdString().c_str()));
+}
+
+void MainWindow::sizeWindow()
+{
+    resize(m_settings->value("geom/winsize", QSize(600,400)).toSize());
+
+    setMinimumHeight(200);
+    setMinimumWidth(400);
 }
 
 void MainWindow::createActions()
@@ -111,7 +134,7 @@ void MainWindow::createActions()
     act_close = new QAction(tr("&Close note set"), this);
     act_close->setStatusTip("Close the open note set");
     act_close->setShortcut(QKeySequence::Close);
-    act_close->setIcon(QIcon::fromTheme("window-close"));
+    act_close->setIcon(QIcon::fromTheme("document-close"));
     connect(act_close, SIGNAL(triggered()), this, SLOT(closeNote()));
 
     act_quit = new QAction(tr("&Quit"), this);
@@ -205,4 +228,9 @@ void MainWindow::createToolbars()
     tb_main->addAction(act_copy);
     tb_main->addAction(act_cut);
     tb_main->addAction(act_paste);
+}
+
+void MainWindow::createStatusBar()
+{
+    setStatusBar(new QStatusBar(this));
 }

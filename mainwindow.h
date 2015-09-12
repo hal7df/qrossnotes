@@ -1,13 +1,12 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QApplication>
+#include <QtWidgets>
 #include <QMainWindow>
 #include <QMessageBox>
 #include <QCloseEvent>
-
-namespace Ui {
-class MainWindow;
-}
+#include <QSettings>
 
 class MainWindow : public QMainWindow
 {
@@ -19,6 +18,9 @@ public:
 
 protected:
     void closeEvent(QCloseEvent* event) Q_DECL_OVERRIDE;
+
+public slots:
+    void closeCleanup();
 
 private slots:
     void newNote();
@@ -37,11 +39,11 @@ private slots:
     void about();
 
 private:
+    void sizeWindow();
     void createActions();
     void createMenus();
     void createToolbars();
-
-    Ui::MainWindow *ui;
+    void createStatusBar();
 
     // FILE ACTIONS
     QAction* act_new;
@@ -72,7 +74,12 @@ private:
     QToolBar* tb_main;
     QToolBar* tb_edit;
 
+    //WIDGETS
+    QProgressBar* w_statusProgress;
+
     QString m_curFile;
+
+    QSettings* m_settings;
 };
 
 #endif // MAINWINDOW_H

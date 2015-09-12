@@ -6,6 +6,8 @@
 
 QT       += core gui
 
+VERSION = 0.0
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = QrossNotes
@@ -17,4 +19,6 @@ SOURCES += main.cpp\
 
 HEADERS  += mainwindow.h
 
-FORMS    += mainwindow.ui
+FORMS    +=
+
+DEFINES += APP_VERSION=\\\"$$VERSION\\\"
