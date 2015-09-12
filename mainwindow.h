@@ -7,6 +7,7 @@
 #include <QMessageBox>
 #include <QCloseEvent>
 #include <QSettings>
+#include "widgets/notetabs.h"
 
 class MainWindow : public QMainWindow
 {
@@ -75,6 +76,7 @@ private:
     QToolBar* tb_edit;
 
     //WIDGETS
+    NoteTabs* w_tabs;
     QProgressBar* w_statusProgress;
 
     QString m_curFile;

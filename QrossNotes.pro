@@ -15,10 +15,15 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    widgets/notetabs.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    widgets/notetabs.h
 
 FORMS    +=
 
 DEFINES += APP_VERSION=\\\"$$VERSION\\\"
+
+RESOURCES += \
+    icons.qrc

@@ -4,6 +4,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent)
 {
     m_settings = new QSettings(this);
+    w_tabs = new NoteTabs(this);
 
     sizeWindow();
 
@@ -12,7 +13,11 @@ MainWindow::MainWindow(QWidget *parent) :
     createToolbars();
     createStatusBar();
 
+    setCentralWidget(w_tabs);
+
     connect(qApp, SIGNAL(aboutToQuit()), this, SLOT(closeCleanup()));
+
+    setWindowIcon(QIcon(":/icons/application/icon48.png"));
 }
 
 MainWindow::~MainWindow()
@@ -120,7 +125,7 @@ void MainWindow::createActions()
     connect(act_open, SIGNAL(triggered()), this, SLOT(openNote()));
 
     act_save = new QAction(tr("&Save note set"), this);
-    act_save->setStatusTip("Save the note set.");
+    act_save->setStatusTip("Save the note set");
     act_save->setShortcut(QKeySequence::Save);
     act_save->setIcon(QIcon::fromTheme("document-save"));
     connect(act_save, SIGNAL(triggered()), this, SLOT(saveNote()));
