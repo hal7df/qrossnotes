@@ -94,10 +94,17 @@ void MainWindow::about()
 {
     QString aboutText;
 
-    aboutText = "<b>QrossNotes ";
+    aboutText = "<big><b>QrossNotes ";
     aboutText.append(qApp->applicationVersion());
-    aboutText.append("</b><p>Author: Paul Bonnen</p>");
+    aboutText.append("</b></big><p>&#169; 2015 Paul Bonnen</p>");
     aboutText.append("<p>Rethink how you take notes</p>");
+    aboutText.append("<p>QrossNotes is distributed in the hope that it will be useful,");
+    aboutText.append(" but WITHOUT ANY WARRANTY; without even the implied warranty of ");
+    aboutText.append("MERCHANTIBILITY or FITNESS FOR A PARTICULAR PURPOSE. See ");
+    aboutText.append("<a href='http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html#section11'>");
+    aboutText.append("section 11</a> of the ");
+    aboutText.append("<a href='http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html'>");
+    aboutText.append("GNU General Public License</a> for more details.");
 
     QMessageBox::about(this, "About QrossNotes", tr(aboutText.toStdString().c_str()));
 }
