@@ -16,10 +16,14 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    widgets/notetabs.cpp
+    widgets/notetabs.cpp \
+    widgets/noteunit.cpp \
+    widgets/notesection.cpp
 
 HEADERS  += mainwindow.h \
-    widgets/notetabs.h
+    widgets/notetabs.h \
+    widgets/noteunit.h \
+    widgets/notesection.h
 
 FORMS    +=
 
