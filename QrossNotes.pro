@@ -18,12 +18,14 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     widgets/notetabs.cpp \
     widgets/noteunit.cpp \
-    widgets/notesection.cpp
+    widgets/notesection.cpp \
+    widgets/notepath.cpp
 
 HEADERS  += mainwindow.h \
     widgets/notetabs.h \
     widgets/noteunit.h \
-    widgets/notesection.h
+    widgets/notesection.h \
+    widgets/notepath.h
 
 FORMS    +=
 

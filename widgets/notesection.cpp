@@ -1,6 +1,7 @@
 #include "notesection.h"
 
-NoteSection::NoteSection()
+NoteSection::NoteSection(QString title, QWidget* parent)
+    : QGroupBox (parent)
 {
 
 }

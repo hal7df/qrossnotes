@@ -6,7 +6,7 @@
 class NoteSection : public QGroupBox
 {
 public:
-    NoteSection(QString title, QObject* parent=0);
+    NoteSection(QString title, QWidget* parent=0);
 };
 
 #endif // NOTESECTION_H

@@ -1,7 +1,9 @@
 #ifndef NOTEUNIT_H
 #define NOTEUNIT_H
 
-#include <QWidget>
+#include <QVector>
+#include <QtWidgets>
+#include "notesection.h"
 
 class NoteUnit : public QWidget
 {
@@ -12,8 +14,11 @@ public:
     virtual ~NoteUnit();
 
     void setUnitName(QString name);
+
     void appendChild(QWidget* child);
-    void appendChild();
+    NoteSection* newSection(QString title);
+
+    QWidget* getChildAtIndex(int index) const { m_layout->itemAt(index); }
 
 signals:
 
@@ -21,6 +26,9 @@ public slots:
 
 private:
     QString m_unitName;
+    QVector<QWidget> m_children;
+
+    QVBoxLayout* m_layout;
 };
 
 #endif // NOTEUNIT_H

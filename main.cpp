@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
     a.setOrganizationDomain("org");
     a.setOrganizationName("monarq");
     a.setApplicationVersion(APP_VERSION);
+
     MainWindow w;
     w.show();
 
