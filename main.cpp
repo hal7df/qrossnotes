@@ -1,9 +1,14 @@
 #include "mainwindow.h"
 #include <QApplication>
+#include <QIcon>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+
+#ifndef Q_OS_LINUX
+    QIcon::setThemeName("oxygen");
+#endif
 
     a.setApplicationDisplayName("QrossNotes");
     a.setApplicationName("QrossNotes");

@@ -31,5 +31,7 @@ FORMS    +=
 
 DEFINES += APP_VERSION=\\\"$$VERSION\\\"
 
+win32|macx {
 RESOURCES += \
     icons.qrc
+}

@@ -2,8 +2,9 @@
 #define NOTESECTION_H
 
 #include <QtWidgets>
+#include "notepath.h"
 
-class NoteSection : public QGroupBox
+class NoteSection : public QGroupBox, public NotePath
 {
 public:
     NoteSection(QString title, QWidget* parent=0);

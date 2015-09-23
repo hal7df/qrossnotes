@@ -4,12 +4,13 @@
 #include <QVector>
 #include <QtWidgets>
 #include "notesection.h"
+#include "notepath.h"
 
-class NoteUnit : public QWidget
+class NoteUnit : public NotePath
 {
     Q_OBJECT
 public:
-    explicit NoteUnit(QWidget *parent = 0);
+    explicit NoteUnit(NotePath *parent = 0);
     NoteUnit(QWidget *parent, QString name);
     virtual ~NoteUnit();
 
@@ -18,7 +19,7 @@ public:
     void appendChild(QWidget* child);
     NoteSection* newSection(QString title);
 
-    QWidget* getChildAtIndex(int index) const { m_layout->itemAt(index); }
+    QWidget* getChildAtIndex(int index) const { return m_layout->itemAt(index)->widget(); }
 
 signals:
 
