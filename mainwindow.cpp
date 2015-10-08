@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
     createMenus();
     createToolbars();
     createStatusBar();
+    setupInitialTabs();
 
     setCentralWidget(w_tabs);
 
@@ -35,6 +36,7 @@ void MainWindow::closeCleanup()
 {
     m_settings->setValue("geom/winsize", size());\
 }
+
 void MainWindow::newNote()
 {
 
@@ -245,4 +247,13 @@ void MainWindow::createToolbars()
 void MainWindow::createStatusBar()
 {
     setStatusBar(new QStatusBar(this));
+}
+
+void MainWindow::setupInitialTabs()
+{
+    GreetPage* initPage;
+
+    initPage = new GreetPage(this);
+
+    w_tabs->addTab(initPage, initPage->getPathName());
 }

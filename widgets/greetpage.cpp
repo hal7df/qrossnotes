@@ -1,6 +1,6 @@
 #include "greetpage.h"
 
-GreetPage::GreetPage(QWidget* parent = 0) : NoteUnit(parent, "Getting Started")
+GreetPage::GreetPage(QWidget* parent) : NoteUnit(parent, "Getting Started")
 {
     layout()->addWidget(constructTitle());
     layout()->addWidget(constructRecent());
@@ -23,8 +23,17 @@ QWidget* GreetPage::constructTitle()
 
     title->setLayout(new QHBoxLayout(title));
 
-    title->layout()->addWidget(app_img);
-    title->layout()->addWidget(app_name);
+    title->layout()->addWidget(&app_img);
+    title->layout()->addWidget(&app_name);
+
+    int newH;
+
+    if (size().height() > 100)
+        newH = (size().height())/5;
+    else
+        newH = 50;
+
+    title->resize(title->size().width(), newH);
 
     return title;
 }

@@ -8,6 +8,7 @@
 #include <QCloseEvent>
 #include <QSettings>
 #include "widgets/notetabs.h"
+#include "widgets/greetpage.h"
 
 class MainWindow : public QMainWindow
 {
@@ -41,10 +42,13 @@ private slots:
 
 private:
     void sizeWindow();
+
     void createActions();
     void createMenus();
     void createToolbars();
     void createStatusBar();
+
+    void setupInitialTabs();
 
     // FILE ACTIONS
     QAction* act_new;
