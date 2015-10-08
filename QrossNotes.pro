@@ -35,3 +35,7 @@ win32|macx {
 RESOURCES += \
     icons.qrc
 }
+else {
+RESOURCES += \
+    icons-minimal.qrc
+}

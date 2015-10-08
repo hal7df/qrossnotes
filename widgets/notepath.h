@@ -9,11 +9,18 @@ class NotePath : public QWidget
 public:
     explicit NotePath(QWidget *parent = 0);
 
-    virtual QString getFullPath() = 0;
+    QString getFullPath();
+    QString getPathName();
+
+    QString setPathName(QString newName);
 
 signals:
 
 public slots:
+
+private:
+    QString m_parentPath;
+    QString m_objName;
 };
 
 #endif // NOTEPATH_H

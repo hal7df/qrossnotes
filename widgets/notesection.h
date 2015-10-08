@@ -4,10 +4,15 @@
 #include <QtWidgets>
 #include "notepath.h"
 
-class NoteSection : public QGroupBox, public NotePath
+class NoteSection : public NotePath
 {
 public:
-    NoteSection(QString title, QWidget* parent=0);
+    explicit NoteSection(NotePath* parent = 0);
+    NoteSection(NotePath* parent = 0, QString name = "");
+
+private:
+    QBoxLayout* m_layout;
+    QGroupBox* w_main;
 };
 
 #endif // NOTESECTION_H
