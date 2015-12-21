@@ -2,7 +2,7 @@
 
 NoteUnit::NoteUnit(QWidget *parent) : NotePath(parent)
 {
-    m_layout = new QVBoxLayout(this);
+    m_layout = new QVBoxLayout;
 
     setLayout(m_layout);
 }
@@ -11,7 +11,7 @@ NoteUnit::NoteUnit(QWidget *parent, QString name) : NotePath(parent)
 {
     setPathName(name);
 
-    m_layout = new QVBoxLayout(this);
+    m_layout = new QVBoxLayout;
 
     setLayout(m_layout);
 }

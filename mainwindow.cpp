@@ -253,7 +253,7 @@ void MainWindow::setupInitialTabs()
 {
     GreetPage* initPage;
 
-    initPage = new GreetPage(this);
+    initPage = new GreetPage();
 
     w_tabs->addTab(initPage, initPage->getPathName());
 }

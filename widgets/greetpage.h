@@ -5,8 +5,11 @@
 
 class GreetPage : public NoteUnit
 {
+Q_OBJECT
 public:
     explicit GreetPage(QWidget* parent = 0);
+
+    void sizeWidgets();
 
 private:
     QWidget* constructTitle();
