@@ -1,9 +1,9 @@
 #ifndef GREETPAGE_H
 #define GREETPAGE_H
 
-#include "noteunit.h"
+#include "tabbase.h"
 
-class GreetPage : public NoteUnit
+class GreetPage : public TabBase
 {
 Q_OBJECT
 public:

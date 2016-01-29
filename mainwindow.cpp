@@ -4,7 +4,11 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent)
 {
     m_settings = new QSettings(this);
-    w_tabs = new NoteTabs(this);
+    w_tabs = new QTabWidget(this);
+
+    w_tabs->setMovable(true);
+    w_tabs->setTabBarAutoHide(true);
+    w_tabs->setTabsClosable(true);
 
     sizeWindow();
 
@@ -255,5 +259,5 @@ void MainWindow::setupInitialTabs()
 
     initPage = new GreetPage();
 
-    w_tabs->addTab(initPage, initPage->getPathName());
+    w_tabs->addTab(initPage, initPage->getTabName());
 }

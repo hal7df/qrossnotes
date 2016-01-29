@@ -4,5 +4,7 @@
         <file alias="icon22.png">icons/application/icon22.png</file>
         <file alias="icon32.png">icons/application/icon32.png</file>
         <file alias="icon48.png">icons/application/icon48.png</file>
+        <file alias="icon64.png">icons/application/icon64.png</file>
+        <file alias="icon128.png">icons/application/icon128.png</file>
     </qresource>
 </RCC>

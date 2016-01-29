@@ -1,11 +1,10 @@
 #include "greetpage.h"
 #include <iostream>
 
-GreetPage::GreetPage(QWidget* parent) : NoteUnit(parent, "Getting Started")
+GreetPage::GreetPage(QWidget* parent) : TabBase(parent, "Getting Started")
 {
-    layout()->addWidget(constructTitle());
-    layout()->addWidget(constructRecent());
-    sizeWidgets();
+    m_layout->addWidget(constructTitle(), 1);
+    m_layout->addWidget(constructRecent(), 5);
 }
 
 void GreetPage::sizeWidgets()
@@ -24,41 +23,41 @@ QWidget* GreetPage::constructTitle()
     QString nameStr;
     QLabel* app_img;
     QLabel* app_name;
+    QFont nameFont;
+    QHBoxLayout* titleLayout;
 
     title = new QWidget (this);
 
-    nameStr = QString("<b>QrossNotes ").append(qApp->applicationVersion());
-    nameStr.append("</b>");
+    nameStr = QString("QrossNotes ").append(qApp->applicationVersion());
 
     app_name = new QLabel(nameStr, this);
     app_img = new QLabel(this);
-    app_img->setPixmap(QPixmap(QString(":/icons/application/icon48.png")));
+    app_img->setPixmap(QPixmap(QString(":/icons/application/icon64.png")));
 
-    title->setLayout(new QHBoxLayout);
+    nameFont = app_name->font();
+    nameFont.setPointSize(24);
+    nameFont.setBold(true);
+    app_name->setFont(nameFont);
 
-    title->layout()->addWidget(app_img);
-    title->layout()->addWidget(app_name);
+    titleLayout = new QHBoxLayout;
 
-    /*
-    int newH;
+    titleLayout->addWidget(app_img, 1);
+    titleLayout->addWidget(app_name, 3);
 
-    if (size().height() > 100)
-        newH = (size().height())/5;
-    else
-        newH = 50;
+    title->setLayout(titleLayout);
 
-    title->resize(title->size().width(), newH);
-
-    std::cout << "Width: " << title->size().width() << std::endl << "Height: " << title->size().width() << std::endl;
-    */
     return title;
 }
 
 QWidget* GreetPage::constructRecent()
 {
     QWidget* recent;
+    QPushButton* createNew;
 
     recent = new QWidget (this);
+    recent->setLayout(new QVBoxLayout);
+
+    createNew = new QPushButton(QIcon::fromTheme("document-new"), "New note set", recent);
 
     return recent;
 }

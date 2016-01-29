@@ -80,7 +80,7 @@ private:
     QToolBar* tb_edit;
 
     //WIDGETS
-    NoteTabs* w_tabs;
+    QTabWidget* w_tabs;
     QProgressBar* w_statusProgress;
 
     QString m_curFile;

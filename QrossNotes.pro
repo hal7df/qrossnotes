@@ -16,28 +16,25 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    widgets/notetabs.cpp \
-    widgets/noteunit.cpp \
-    widgets/notesection.cpp \
-    widgets/notepath.cpp \
-    widgets/greetpage.cpp
+    widgets/greetpage.cpp \
+    widgets/tabbase.cpp \
+    widgets/noteedit.cpp \
+    actionmanager.cpp
 
 HEADERS  += mainwindow.h \
-    widgets/notetabs.h \
-    widgets/noteunit.h \
-    widgets/notesection.h \
-    widgets/notepath.h \
-    widgets/greetpage.h
+    widgets/greetpage.h \
+    widgets/tabbase.h \
+    widgets/noteedit.h \
+    actionmanager.h
 
 FORMS    +=
 
 DEFINES += APP_VERSION=\\\"$$VERSION\\\"
 
+RESOURCES += \
+    icons-minimal.qrc
+
 win32|macx {
 RESOURCES += \
     icons.qrc
-}
-else {
-RESOURCES += \
-    icons-minimal.qrc
 }
